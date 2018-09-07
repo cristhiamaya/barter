@@ -1,0 +1,111 @@
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav class="example-sidenav"
+               fxLayout="column"
+               [mode]="'over'"
+               [opened]="openSidenav">
+
+    <div style="height: 80px; width: 100%; background: #44b48b;" fxLayout="column">
+      <div fxFlex></div>
+      <div fxLayout="column" fxLayoutAlign="left left">
+        <div fxLayout="row" class="person-stuff">
+          <i class="avatar material-icons">
+            person
+          </i>
+          <div fxLayout="column">
+            <b>Welcome!</b>
+            <label>Barter</label>    
+          </div>
+        </div>
+      </div>
+      <div fxFlex></div>
+    </div>
+
+    <mat-nav-list fxFlex style="width: 100%;">
+      <a mat-list-item routerLink="">
+        <mat-icon>home</mat-icon>
+        <label>Home</label>
+        <span fxFlex></span>
+      </a>
+      <a mat-list-item routerLink="">
+        <mat-icon>favorite</mat-icon>
+        <label>Favorites</label>
+        <span fxFlex></span>
+      </a>
+      <a mat-list-item routerLink="">
+        <mat-icon>ballot</mat-icon>
+        <label>My barters</label>
+        <span fxFlex></span>
+      </a>
+      <a mat-list-item routerLink="">
+        <mat-icon>account_circle</mat-icon>
+        <label>My Account</label>
+        <span fxFlex></span>
+      </a>  
+      <!-- <a mat-list-item routerLink="notification">
+        <mat-icon matBadge="8" matBadgeColor="warn">notifications</mat-icon>
+        <p>Notifications</p>
+        <span fxFlex></span>
+      </a> -->
+    </mat-nav-list>
+
+    <div fxFlex></div>
+    <div style="position: fixed; bottom: 0; width: 100%;">
+      <mat-nav-list  fxFlex style="width: 100%;">
+        <a mat-list-item routerLink="settings" 
+          style="position: fixed; bottom: 0; width: 100%;">
+          <mat-icon>settings</mat-icon>
+          <label>Settings</label>
+          <span fxFlex></span>
+          <mat-icon>chevron_right</mat-icon>
+        </a>
+      </mat-nav-list>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    
+    <div class="menu-body" fxLayout="row" fxLayoutAlign="center center">
+      <button mat-icon-button *ngIf="!search" (click)="toggleSidenav()" style="margin-left: 15px;">
+        <mat-icon style="padding-left: 8px;" aria-label="menu">menu</mat-icon>
+      </button>
+      <div *ngIf="search" fxLayoutAlign="right right">
+        <button (click)="changeSearch()" class="btn-none" color="accent">
+          <i class="material-icons" color="accent">arrow_back_ios</i>
+        </button>
+      </div>
+      <div fxFlex fxLayoutAlign="center center" *ngIf="!search" fxLayoutAlign="center center" >
+        <img src="https://i.imgur.com/gxrMbaA.png" alt="" style="width: 25px; height: 25px; padding-right: 10px; padding-bottom: 5px;">
+        <div style="font-size: 25px;" routerLink="/">
+          <b>Barter</b>
+        </div>
+      </div>
+      <div class="searchBar" *ngIf="search">
+        <app-search-bar></app-search-bar>
+      </div>
+      <a mat-list-item routerLink="notification" *ngIf="!search" style="padding-right: 15px; color: white;">
+        <mat-icon matBadge="6" matBadgeColor="warn" style="color: white;">notifications</mat-icon>
+        <span fxFlex></span>
+      </a>
+  
+      <div *ngIf="!search">
+        <button mat-icon-button *ngIf="!search" (click)="changeSearch()" style="margin-right: 15px;">
+          <mat-icon style="padding-right: 0px;" aria-label="search">search</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div style="height: 60px;"></div>
+
+    <div class="menu" *ngIf="menuOpened" fxLayout="column" fxLayoutAlign="top" >
+      <button (click)="toggleMenu()" class="btn-none" color="accent"><i class="material-icons" color="accent">reorder</i></button>
+      <div class="options">
+        <p>option</p>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

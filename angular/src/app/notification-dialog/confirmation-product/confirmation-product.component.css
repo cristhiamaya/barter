@@ -1,0 +1,129 @@
+.btn{
+    border: 0;
+    border-radius: 10px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 17px;
+    width: 250px;
+    height: 50px;
+    color: white;
+}
+.title{
+    color: #4b8871;
+}
+.payU{
+
+  color: #4b8871;
+  background-color: #fafcfb;
+}
+.title-box{
+    margin-bottom: 80px;
+    margin-top: 40px;
+    text-align: center;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.contact-info-div{
+    border: 2px dashed #2da179;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 600px;
+    margin-bottom: 50px;
+}
+.btn-txt{
+  margin-top: -20px;
+}
+
+.back-btn-safe{
+  border: 0;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  font-size: 17px;
+  width: 45px;
+  height: 45px;
+  color: white;
+  background-color: #284e41;
+}
+
+.back-btn-unsafe{
+  border: 0;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  font-size: 17px;
+  width: 45px;
+  height: 45px;
+  color: white;
+  background-color: #65a38d;
+}
+.btn:hover{
+  cursor: pointer;
+}
+.barter-info{
+    background-color: #2da179;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 600px;
+    margin-bottom: 50px;
+}
+.barter-title{
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.barter-safe{
+    margin-right: 10px;
+}
+.contact-title{
+    text-align: center;
+    color: #2da179;
+}
+.contact-info{
+    color: #3c7c66;
+    font-size: 18px;
+}
+.barter-info{
+    color: #e5f1ed;
+    font-size: 18px;
+}
+.description{
+    margin-top: 5px;
+    font-weight: 100;
+}
+.safe:hover{
+    background-color: #247558;
+    transition: 0.5s;
+    -moz-transform: 0.5s;
+}
+.safe{
+    background-color: #44b48b;
+}
+.payment{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: #0b3525;
+}
+.payment:hover{
+    background-color: #09241a;
+}
+.nonSafe{
+    background-color: rgba(0,0,0,0);
+    color: #44b48b;
+}
+.contact-div{
+    margin-top:10px;
+    width: 100%;
+}
+.btn-div{
+    margin-top:40px;
+}

@@ -1,0 +1,187 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('barter:server');
+var http = require('http');
+
+
+/* SEQUELIZE */
+
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(
+  'barter', 
+  process.env.NODEJS_SEQUELIZE_USERNAME, 
+  process.env.NODEJS_SEQUELIZE_PASSWORD, {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+
+  // SQLite only
+  storage: 'path/to/database.sqlite',
+
+  define: {
+    timestamps: false
+  },
+
+  // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+  operatorsAliases: false
+});
+
+const Product = sequelize.define('product', {
+  id: { type: Sequelize.INTEGER, primaryKey: true },
+  ownerId: Sequelize.STRING,
+  description: Sequelize.STRING,
+  type: Sequelize.STRING,
+  imageURL: Sequelize.STRING,
+  name: Sequelize.STRING,
+  state: Sequelize.STRING,
+  peopleInterested: Sequelize.STRING,
+  favourite: Sequelize.STRING,
+  feature1: Sequelize.STRING,
+  feature2: Sequelize.STRING,
+  feature3: Sequelize.STRING
+});
+
+const Owner = sequelize.define('owner', {
+  ownerId: { type: Sequelize.INTEGER, primaryKey: true },
+  name: Sequelize.STRING,
+  rating: Sequelize.INTEGER
+});
+
+const Comment = sequelize.define('comment', {
+  commentId: { type: Sequelize.INTEGER, primaryKey: true },
+  productId: Sequelize.INTEGER,
+  name: Sequelize.STRING,
+  description: Sequelize.STRING
+});
+
+/*  OWNER - PRODUCT  */
+Owner.hasMany(Product, {
+  foreignKey: 'ownerId'
+});
+
+Product.belongsTo(Owner, {
+  foreignKey: 'ownerId'
+});
+
+/*  PRODUCT - COMMENT  */
+Product.hasMany(Comment, {
+  foreignKey: 'commentId'
+});
+
+Comment.belongsTo(Product, {
+  foreignKey: 'commentId'
+});
+
+// sequelize.sync()
+//   .then(() => Product.create({
+//     idOwner: 2,
+//     description: "YO"
+//   }))
+//   .then(jane => {
+//     console.log(jane.toJSON());
+//   });
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+sequelize.authenticate().then(() => {
+
+  console.log("sequelize connected!");
+
+  var port = normalizePort(process.env.PORT || '3000');
+  app.set('port', port);
+
+  /**
+   * Create HTTP server.
+   */
+
+  var server = http.createServer(app);
+
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+
+  /**
+   * Normalize a port into a number, string, or false.
+   */
+
+  function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+
+    return false;
+  }
+
+  /**
+   * Event listener for HTTP server "error" event.
+   */
+
+  function onError(error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+
+    var bind = typeof port === 'string'
+      ? 'Pipe ' + port
+      : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case 'EACCES':
+        console.error(bind + ' requires elevated privileges');
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(bind + ' is already in use');
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  }
+
+  /**
+   * Event listener for HTTP server "listening" event.
+   */
+
+  function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+      ? 'pipe ' + addr
+      : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+  }
+
+})
+
+module.exports.Product = Product;
+module.exports.Owner = Owner;
+module.exports.sequelize = sequelize;
+module.exports.Comment = Comment;

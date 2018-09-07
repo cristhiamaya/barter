@@ -1,0 +1,86 @@
+
+<div fxLayout="column">
+  <img [src]="productSelected.imageURL" class="imageProduct" alt="">
+  <div style="padding-left: 10px;margin-top: -42px">
+    <b class="title">{{productSelected.name}}</b>
+  </div>
+</div>
+
+<div style="padding-left: 10px; padding-right: 10px">
+  <span *ngIf="bartered">
+    <div class="done" fxLayoutAlign="center center">
+      <i class="material-icons check-icons">
+        check_circle
+      </i>
+    </div>    
+    <div class="info" fxLayoutAlign="center center" fxLayout="column">
+      <h1 class="done-title">You have made your offer!</h1>
+      <p>We will let you know you if your offer has been accepted.</p>    
+    </div>
+  </span>
+  <mat-vertical-stepper *ngIf="!bartered" class="vertical-stepper" [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Items that this user wants</ng-template>
+        <div class="product-checkout-body" fxLayout="column" fxLayoutAlign="top left">
+            <div class="wish-box">
+              <div  class="wishes">
+                <div class="text-wishes">
+                  <div (click)="selectWish(wish)" *ngFor="let wish of wishes" class="wish">
+                    <div class="description">
+                      <b class="title-wish">{{wish.name}}</b>
+                      <p class="description-wish">{{wish.description}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel>Items that you offer in exchange</ng-template>
+      <div *ngIf="showOffers" fxLayout="column" fxLayoutAlign="top left">       
+        <div class="text-wishes">
+          <div (click)="selectOffer(offer)" *ngFor="let offer of offers" class="wish">
+            <div class="description" fxLayout="row">
+              <img [src]="offer.url" style="width: 80px; height: 60px; padding-right: 10px;">
+              <div fxLayout="column">
+                <b class="title-wish">{{offer.name}}</b>
+                <p class="description-wish">{{offer.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div (click)="toggleShowOffers()" fxLayoutAlign="center center" class="barter-btn"><span>Offer another item</span></div>
+      </div>
+      <div *ngIf="!showOffers">
+        <form>
+          <img *ngIf="showImage" src="https://www.westelm.com/weimgs/ab/images/wcm/products/201824/0136/slope-leather-lounge-chair-c.jpg" class="image-product">
+          <img *ngIf="showLoading" src="https://i.imgur.com/OCp7LdD.gif" class="image-product">
+          <div fxLayoutAlign="center center" (click)="uploadImage()" class="upload-btn"><span>Upload Image...</span></div>
+        </form>
+        <form>
+          <mat-form-field class="filloutform name">
+            <input matInput placeholder="Name" formControlName="nameCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="filloutform">
+            <textarea matInput placeholder="Description" required>
+            </textarea>
+          </mat-form-field>
+          <div>
+            <div fxLayoutAlign="center center" (click)="selectOffer()" class="barter-btn"><i class="material-icons icon-btn">swap_horizontal_circle</i><span>Offer</span></div>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div *ngIf="offerSelected!=null && selectedWish!=null">
+        <ng-template matStepLabel>Confirm</ng-template>
+        <h3 class="title-confirm">You're bartering</h3>
+        <h1 class="subtitle-confirm">{{selectedWish.name}}</h1>    
+        <h3 class="title-confirm">For</h3>
+        <h1 class="subtitle-confirm">{{productSelected.name}}</h1>
+        <div (click)="barter()" fxLayoutAlign="center center" class="final-btn"><i class="material-icons icon-btn">swap_horizontal_circle</i><span>Barter!</span></div>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

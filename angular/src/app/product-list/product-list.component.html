@@ -1,0 +1,15 @@
+<ngx-gallery class="gallery" *ngIf="typeProduct == 'latest'" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+<div class="product-item-list"  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center center">
+  <div class="product-item-body"
+      *ngFor="let product of products"
+      (click)="goToProductDetail(product)">
+      <img src={{product.imageURL}} class="product-img">
+      <div class="product-txt">
+        <p class="product-title">{{product.name}}</p>
+        <p class="product-desc">
+          {{product.shortDescription}}
+        </p>
+      </div>
+  </div>
+</div>

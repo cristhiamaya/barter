@@ -1,0 +1,67 @@
+{
+  "latest": [
+    {
+      "name":"A service chair",
+      "image":"https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/29365_XXX_v1.tif&wid=650&cvt=jpeg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    },
+    {
+      "name":"Another chair",
+      "image":"https://target.scene7.com/is/image/Target/18808911?wid=328&hei=328&qlt=80&fmt=pjpeg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    },
+    {
+      "name":"A Nice chair",
+      "image":"https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/35026_XXX_v1.tif&wid=2000&cvt=jpeg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    },
+    {
+      "name":"A clothing chair",
+      "image":"https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/12/04/grid-img/1513712621177934845.jpg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    },
+    {
+      "name":"A service chair",
+      "image":"http://acplumbingservice.com/wp-content/uploads/dayton-plumbing-services.png",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    }
+  ],
+  "clothing": [
+    {
+      "name":"A clothing chair",
+      "image":"https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/12/04/grid-img/1513712621177934845.jpg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    }
+  ],
+  "computing": [
+    {
+      "name":"A computing chair",
+      "image":"https://4.imimg.com/data4/WN/IQ/MY-3996658/computer-desktop-500x500.jpg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    }
+  ],
+  "services": [
+    {
+      "name":"A service chair",
+      "image":"https://ii.worldmarket.com/fcgi-bin/iipsrv.fcgi?FIF=/images/worldmarket/source/29365_XXX_v1.tif&wid=650&cvt=jpeg",
+      "shortDescription": "A short but sweet description",
+      "description": "A veeeery loooong description",
+      "exchangeFor:":["A bike", "A Car", "A Nicer Chair"]
+    }
+  ]
+
+}

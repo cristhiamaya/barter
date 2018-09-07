@@ -1,0 +1,23 @@
+<div class="notification-title">
+  <span class="title">
+    <i class="material-icons">notifications</i>    
+    <span class="title-txt">Notifications</span>
+  </span>
+</div>
+
+<div class="notifications-body" fxLayout="column" fxLayoutAlign="center center">
+  <div [ngClass]="notification.accepted?'notification-accepted':'notification-declined'" 
+      *ngFor="let notification of notifications" fxLayout="row">
+      <div>
+        <i class="user-icon material-icons">
+          face
+        </i>
+      </div>
+      <div class="description">{{notification.description}}</div>
+        <div>
+        <button (click)="continue(notification)" [ngClass]="notification.accepted?'btn btn-accepted':'btn btn-declined'">
+          <span *ngIf="notification.accepted">continue</span><span *ngIf="!notification.accepted">Accept</span>
+        </button>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.imageProduct {
+  width: 100%;
+}
+
+.info-container {
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.not-favorite {
+  background-color: #9a9a9a;
+}
+
+.title {
+  font-size: 30px;
+}

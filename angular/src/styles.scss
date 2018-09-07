@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~css-star-rating/scss/star-rating';
+
+body{
+    margin:0;    
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.btn-dark:hover{
+    cursor: pointer;
+    background-color: #3b8167;
+    -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+}
+.btn-dark{
+    margin-top: -11px;
+    height: 57px;
+    background-color: #2fa177;
+    color : white;
+    border: none;
+    width: 57px;
+    border-radius: 2px;
+}
+
+.star.medium, .rating.medium .star {
+  height: 30px;
+  width: 30px;
+}

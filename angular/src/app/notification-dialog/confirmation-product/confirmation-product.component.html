@@ -1,0 +1,49 @@
+<div fxLayoutGap="10px" *ngIf="!nonsafe && !safe" class="btn-div" fxLayout="column" fxLayoutAlign="center center">
+  <div class="title-box" fxLayoutAlign="center center">
+    <h2 class="title">Please choose a trading method:</h2>
+  </div>
+  <div class="btn-div" fxLayoutGap="30px" fxLayout="column">
+    <button class="btn safe" (click)="chooseSafe()"><i class="material-icons barter-safe">lock</i>Safe Barter exchange</button>
+    <button class="btn nonSafe" (click)="chooseNonSafe()">Contact directly with the person</button>
+  </div>
+</div>
+
+
+<div fxLayoutGap="10px" *ngIf="nonsafe" class="btn-div" fxLayout="column" fxLayoutAlign="center center">
+  <div class="contact-info-div">
+    <button  class="btn back-btn-unsafe" (click)="back()"><i class="material-icons">arrow_back</i></button>
+
+    <div class="contact-title">
+      <h2>Contact info</h2>
+    </div>
+    <p>Name: <b class="contact-info">Jhon Doe</b></p>
+    <p>Address: <b class="contact-info">Cra 86a #10-17</b></p>
+    <p>Cellphone: <b class="contact-info">(+51)3194310117</b></p>
+    <p>Barter date: <b class="contact-info">2018 / 08 / 09</b></p>
+    <p>Their Product: <b class="contact-info">Watch</b></p>
+    <p>Your product: <b class="contact-info">Watch</b></p>
+    <p>Description: </p>
+    <p class="description">Lorem ipsum Watch Lorem ipsum Watch Lorem ipsum WatchLorem ipsum Watch</p>
+  </div>
+</div>
+
+<div fxLayoutGap="10px" *ngIf="safe" class="btn-div" fxLayout="column" fxLayoutAlign="center center">
+  <div class="barter-info">
+    <button  class="btn back-btn-safe" (click)="back()" style="margin-left:-10px; padding-left: 15px;"><i class="material-icons">arrow_back_ios</i></button>
+    <div class="barter-title">
+      <h2><i class="material-icons barter-safe">lock</i>Safe Barter exchange</h2>
+    </div>
+    <p>Name: <b class="barter-info">Jhon Doe</b></p>
+    <p>Address: <b class="barter-info">Cra 86a #10-17</b></p>
+    <p>Cellphone: <b class="barter-info">(+51)3194310117</b></p>
+    <p>Barter date: <b class="barter-info">2018 / 08 / 09</b></p>
+    <p>Their Product: <b class="barter-info">Watch</b></p>
+    <p>Your product: <b class="barter-info">Watch</b></p>
+    <p>Description: </p>
+    <p class="description">Lorem ipsum Watch Lorem ipsum Watch Lorem ipsum WatchLorem ipsum Watch</p>
+    <div fxLayoutAlign="center center" style="margin-bottom: 10px;" fxLayout="column">
+      <button class="btn payment">Initiate payment</button>
+      <button class="btn payU"><span class="btn-txt" >Pay with </span><img style="height: 33px;" src="http://livingandtravel.com.mx/wp-content/uploads/2017/08/PayU-Logo.jpg"></button>
+    </div>
+    </div>
+</div>

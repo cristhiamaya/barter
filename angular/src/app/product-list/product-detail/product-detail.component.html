@@ -1,0 +1,65 @@
+<img [src]="product.imageURL" class="imageProduct" alt="">
+
+<div class="info-container">
+  <div style="color: red;" fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon>whatshot</mat-icon>
+    <span fxLayoutAlign="center center">
+      <b>{{product.peopleInterested}} viewing now</b>
+    </span>
+    <div fxFlex></div>
+    <button mat-fab color="warn" [ngClass]="{'not-favorite': !product.favourite}" (click)="product.favourite = !product.favourite">
+      <mat-icon>favorite</mat-icon>
+    </button>    
+  </div>
+
+  <p>
+    <b class="title">{{product.name}}</b>
+  </p>
+
+  <p style="color: darkgray;">{{product.state}}</p>
+
+  <div style="padding-bottom: 20px;">{{product.description}}</div>
+
+  <ul>
+    <li *ngIf="product.feature1">{{product.feature1}}</li>
+    <li *ngIf="product.feature2">{{product.feature2}}</li>
+    <li *ngIf="product.feature3">{{product.feature3}}</li>
+  </ul>  
+
+  <div fxLayout="column" style="padding-bottom: 20px; padding-top: 10px;">
+    <div fxLayoutAlign="center center">
+      <b>{{ product.owner.name | uppercase}}</b>
+    </div>
+    <star-rating [starType]="'svg'" [rating]="product.owner.rating" style="height: 35px;"></star-rating>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div fxLayout="column">
+        <div>178 out of 180 succesfull barters</div>
+      </div>
+    </div>
+    <div fxFlex></div>
+  </div>
+  
+
+  <mat-divider></mat-divider>
+
+  <div fxLayout="row" style="padding-top: 20px; padding-bottom: 20px;">
+    <div fxFlex></div>
+    <span *ngIf="comments!=null">
+      {{comments.length}} comments
+    </span>
+  </div>
+
+  <div fxLayout="column" *ngFor="let comment of comments">
+    <div style="padding-bottom: 0px;"><b>{{comment.name}}</b></div>
+    <p>{{comment.description}}</p>
+  </div>
+
+</div>
+
+<mat-toolbar style="position: fixed; bottom: 0; width: 100%; z-index: 5; background-color: #3abc8c;"
+             fxLayoutAlign="end center">
+  <button mat-raised-button (click)="next()" mat-button>
+    <mat-icon>arrow_forward</mat-icon>
+    <span>Proceeed</span>
+  </button>
+</mat-toolbar>
