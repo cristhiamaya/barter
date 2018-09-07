@@ -1,5 +1,5 @@
 # BARTER
-Community for free trading!
+It's an app that promotes free trading of all the things we no longer use for useful ones!
 
 AngelHack Bogota Hackathon 2018
 
